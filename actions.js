@@ -6,13 +6,17 @@ import uuid from uuid;
 // -usuwanie komentarza
 // -ocenianie +1 / -1 (kciuk w górę/kciuk w dół) komentarza
 
-const ADD_COMMENT = 'ADD_COMMENT';
-const EDIT_COMMENT = 'EDIT_COMMENT';
-const REMOVE_COMMENT = 'REMOVE_COMMENT';
-const THUMB_UP_COMMENT = 'THUMB_UP_COMMENT';
-const THUMB_DOWN_COMMENT = 'THUMB_DOWN_COMMENT';
+export const ADD_COMMENT = 'ADD_COMMENT';
+export const EDIT_COMMENT = 'EDIT_COMMENT';
+export const REMOVE_COMMENT = 'REMOVE_COMMENT';
+export const THUMB_UP_COMMENT = 'THUMB_UP_COMMENT';
+export const THUMB_DOWN_COMMENT = 'THUMB_DOWN_COMMENT';
 
 const boundAddComment = text => dispatch(addComment(text));
+const boundRemoveComment = id => dispatch(removeComment(id));
+const boundEditComment = text => dispatch(editComment(text));
+const boundthumbUp = thumb => dispatch(thumbUp(thumb));
+const boundthumbDown = thumb => dispatch(thumbDown(thumb));
 
 // add
 {
@@ -55,5 +59,37 @@ function addComment(text) {
     }
 }
 
+function removeComment(id) {
+    return {
+        type: REMOVE_COMMENT,
+        id
+    }
+}
+
+function editComment(text) {
+    return {
+        type: EDIT_COMMENT,
+        text
+    }
+}
+
+function thumbUp(text) {
+    return {
+        type: THUMB_UP_COMMENT,
+        thumb
+    }
+}
+
+function thumbDown(text) {
+    return {
+        type: THUMB_DOWN_COMMENT,
+        thumb
+    }
+}
+
 boundAddComment('nowy komentarz!');
 boundAddComment('kolejny nowy komentarz!');
+boundEditComment('edytowany komentarz!');
+boundRemoveComment(id);
+boundthumbUp(thumb);
+boundthumbDown(thumb);
