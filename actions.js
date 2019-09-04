@@ -18,6 +18,7 @@ const boundEditComment = text => dispatch(editComment(text));
 const boundthumbUp = thumb => dispatch(thumbUp(thumb));
 const boundthumbDown = thumb => dispatch(thumbDown(thumb));
 
+/*
 // add
 {
     type: ADD_COMMENT,
@@ -50,6 +51,7 @@ const boundthumbDown = thumb => dispatch(thumbDown(thumb));
     id: 20,
     thumb: 0
 }
+*/
 
 function addComment(text) {
     return {
@@ -69,6 +71,7 @@ function removeComment(id) {
 function editComment(text) {
     return {
         type: EDIT_COMMENT,
+        id,
         text
     }
 }
@@ -83,6 +86,7 @@ function thumbUp(text) {
 function thumbDown(text) {
     return {
         type: THUMB_DOWN_COMMENT,
+        id,
         thumb
     }
 }
