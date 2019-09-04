@@ -37,29 +37,18 @@ function reducer(state = initialState, action) {
         // dodać edycję + ocenianie        
         case EDIT_COMMENT:
             return Object.assign({}, state, {
-                comments: state.comments.filter(comment => comment.text == action.text)
+                comments: state.comments.map(comment => comment.id == action.text)
             });
         case THUMB_UP_COMMENT:
             return Object.assign({}, state, {
-                comments: state.comments.filter(comment => comment.thumb == action.thumb)
+                comments: state.comments.map(comment => comment.id == action.thumb)
             });
         case THUMB_DOWN_COMMENT:
             return Object.assign({}, state, {
-                comments: state.comments.filter(comment => comment.thumb == action.thumb)
+                comments: state.comments.map(comment => comment.id == action.thumb)
             });
         default:
             return state;
     }
 }
 
-function comments(state = [], action) {
-    switch(action.type) {
-        case ADD_COMMENT:
-            return [{
-                id: action.id,
-                text: action.text
-                votes: 0
-            }
-            , ...state];
-    }
-}

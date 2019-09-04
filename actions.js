@@ -76,14 +76,15 @@ function editComment(text) {
     }
 }
 
-function thumbUp(text) {
+function thumbUp(thumb) {
     return {
         type: THUMB_UP_COMMENT,
+        id,
         thumb
     }
 }
 
-function thumbDown(text) {
+function thumbDown(thumb) {
     return {
         type: THUMB_DOWN_COMMENT,
         id,
