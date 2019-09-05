@@ -37,15 +37,15 @@ function reducer(state = initialState, action) {
         // dodać edycję + ocenianie        
         case EDIT_COMMENT:
             return Object.assign({}, state, {
-                comments: state.comments.map(comment => comment.id == action.text)
+                comments: state.comments.map(comment => comment.id == action.id)
             });
         case THUMB_UP_COMMENT:
             return Object.assign({}, state, {
-                comments: state.comments.map(comment => comment.id == action.thumb)
+                comments: state.comments.map(comment => comment.id == action.id)
             });
         case THUMB_DOWN_COMMENT:
             return Object.assign({}, state, {
-                comments: state.comments.map(comment => comment.id == action.thumb)
+                comments: state.comments.map(comment => comment.id == action.id)
             });
         default:
             return state;
