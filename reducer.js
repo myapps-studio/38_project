@@ -37,18 +37,28 @@ function reducer(state = initialState, action) {
         // dodać edycję + ocenianie        
         case EDIT_COMMENT:
             return Object.assign({}, state, {
-                comments: state.comments.map(comment => comment.id == action.id)
+                comments: state.comments.map(comment => {
+                          if (comment.id == action.id){
+                              comment.text = text;
+                          }
+                          return comment;
+                })
             });
         case THUMB_UP_COMMENT:
             return Object.assign({}, state, {
-                comments: state.comments.map(comment => comment.id == action.id)
+                comments: state.comments.map(comment => {
+                    comment.id == action.id
+                    return comment;
+                })
             });
         case THUMB_DOWN_COMMENT:
             return Object.assign({}, state, {
-                comments: state.comments.map(comment => comment.id == action.id)
+                comments: state.comments.map(comment => {
+                    comment.id == action.id
+                    return comment;
+                })
             });
         default:
             return state;
     }
 }   
-
