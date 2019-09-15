@@ -39,7 +39,7 @@ function reducer(state = initialState, action) {
             return Object.assign({}, state, {
                 comments: state.comments.map(comment => {
                           if (comment.id == action.id){
-                              comment.text = text;
+                              comment.text = action.text;
                           }
                           return comment;
                 })
@@ -47,15 +47,19 @@ function reducer(state = initialState, action) {
         case THUMB_UP_COMMENT:
             return Object.assign({}, state, {
                 comments: state.comments.map(comment => {
-                    comment.id == action.id
-                    return comment;
+                        if (comment.id == action.id){
+                            comment.votes = 1;
+                        }
+                        return comment;
                 })
             });
         case THUMB_DOWN_COMMENT:
             return Object.assign({}, state, {
                 comments: state.comments.map(comment => {
-                    comment.id == action.id
-                    return comment;
+                        if (comment.id == action.id){
+                            comment.votes = -1;
+                        }
+                        return comment;
                 })
             });
         default:
