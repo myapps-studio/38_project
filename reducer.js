@@ -48,7 +48,7 @@ function reducer(state = initialState, action) {
             return Object.assign({}, state, {
                 comments: state.comments.map(comment => {
                         if (comment.id == action.id){
-                            comment.votes = 1;
+                            comment.votes += 1;
                         }
                         return comment;
                 })
@@ -57,7 +57,7 @@ function reducer(state = initialState, action) {
             return Object.assign({}, state, {
                 comments: state.comments.map(comment => {
                         if (comment.id == action.id){
-                            comment.votes = -1;
+                            comment.votes -= 1;
                         }
                         return comment;
                 })
